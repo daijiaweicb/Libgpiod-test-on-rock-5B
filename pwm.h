@@ -86,9 +86,7 @@ private:
         WriteSYS(pwmpath + "/period", ns);
     }
 
-    
-
-    /**
+        /**
      * @brief Enable PWM output
      */
     void enable() const
