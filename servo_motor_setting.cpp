@@ -2,7 +2,7 @@
 
 ServoMotorSetting::ServoMotorSetting(int channel, int frequency, int duty_cycle, int chipNo)
 {
-    pwm.start_pwm(channel, frequency, duty_cycle, chipNo);
+    pwm.StartPWM(channel, frequency, duty_cycle, chipNo);
 }
 
 ServoMotorSetting::~ServoMotorSetting()
@@ -22,5 +22,5 @@ int ServoMotorSetting::SpeedToDutyNs(int speed) // speed range from -100 to 100,
 void ServoMotorSetting::ChangeSpeed(int speed)
 {
     int duty_ns = SpeedToDutyNs(speed);
-    pwm.setDutyCycleNS(duty_ns);
+    pwm.SetDutyCycleNS(duty_ns);
 }

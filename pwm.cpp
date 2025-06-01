@@ -1,6 +1,6 @@
 #include "pwm.h"
 
-int PWM::start_pwm(int channel, int frequency, float duty_cycle, int chip)
+int PWM::StartPWM(int channel, int frequency, float duty_cycle, int chip)
 {
     chippath = "/sys/class/pwm/pwmchip" + to_string(chip);
     pwmpath = chippath + "/pwm" + to_string(channel);
@@ -16,8 +16,8 @@ int PWM::start_pwm(int channel, int frequency, float duty_cycle, int chip)
         return r;
     usleep(100000);
     per = (int)1E9 / frequency;
-    setPeriod(per);
-    setDutyCycle(duty_cycle);
+    SetPeriod(per);
+    SetDutyCycle(duty_cycle);
     enable();
     return r;
 }

@@ -29,27 +29,27 @@ public:
      * @param chip PWM chip number (usually 0 or 2)
      * @return int 0 if success, <0 if failed
      */
-    int start_pwm(int channel, int frequency, float duty_cycle, int chip = 2);
+    int StartPWM(int channel, int frequency, float duty_cycle, int chip = 2);
 
     /**
      * @brief Set duty cycle by percentage
      *
-     * @param v Duty cycle percentage (e.g., 7.5)
+     * @param Duty cycle percentage (e.g., 7.5)
      * @return int Result code
      */
-    inline int setDutyCycle(float v) const
+    inline int SetDutyCycle(float v) const
     {
         const int dc = (int)round((float)per * (v / 100.0));
-        const int r = setDutyCycleNS(dc);
+        const int r = SetDutyCycleNS(dc);
         return r;
     }
 
     /**
      * @brief Set duty cycle in nanoseconds
      */
-    inline int setDutyCycleNS(int ns) const
+    inline int SetDutyCycleNS(int ns) const
     {
-        const int r = writeSYS(pwmpath + "/duty_cycle", ns);
+        const int r = WriteSYS(pwmpath + "/duty_cycle", ns);
         return r;
     }
 
@@ -66,7 +66,7 @@ private:
     /**
      * @brief Write an integer value to a sysfs file
      */
-    inline int writeSYS(std::string filename, int value) const
+    inline int WriteSYS(std::string filename, int value) const
     {
         FILE *const fp = fopen(filename.c_str(), "w");
         if (NULL == fp)
@@ -81,9 +81,9 @@ private:
     /**
      * @brief Set PWM period in nanoseconds
      */
-    void setPeriod(int ns) const
+    void SetPeriod(int ns) const
     {
-        writeSYS(pwmpath + "/period", ns);
+        WriteSYS(pwmpath + "/period", ns);
     }
 
     
@@ -93,7 +93,7 @@ private:
      */
     void enable() const
     {
-        int r = writeSYS(pwmpath + "/enable", 1);
+        int r = WriteSYS(pwmpath + "/enable", 1);
         cout << "[DEBUG] enable() write to " << pwmpath + "/enable" << " result = " << r << endl;
     }
 
@@ -102,7 +102,7 @@ private:
      */
     void disable() const
     {
-        writeSYS(pwmpath + "/enable", 0);
+        WriteSYS(pwmpath + "/enable", 0);
     }
 };
 
