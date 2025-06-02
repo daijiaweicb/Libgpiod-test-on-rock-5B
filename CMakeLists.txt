@@ -9,4 +9,6 @@ pkg_check_modules(LIBGPIOD REQUIRED libgpiod>=1.6.0)
 
 include_directories(${LIBGPIOD_INCLUDE_DIRS})
 link_directories(${LIBGPIOD_LIBRARY_DIRS})
-add_executable(test_gpiod main.cpp pwm.cpp servo_motor_setting.cpp)
+add_executable(TestServoMotor main.cpp pwm.cpp servo_motor_setting.cpp)
+
+install(TARGETS TestServoMotor RUNTIME DESTINATION bin)
