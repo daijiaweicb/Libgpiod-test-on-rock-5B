@@ -16,7 +16,7 @@ int ServoMotorSetting::SpeedToDutyNs(int speed) // speed range from -100 to 100,
     if (speed < -100)
         speed = -100;
 
-    return 1500000 + (speed * 5000); // 5000 = 500000 / 100;
+    return 2000000 + (speed * 5000); // 5000 = 500000 / 100;
 }
 
 void ServoMotorSetting::ChangeSpeed(int speed)

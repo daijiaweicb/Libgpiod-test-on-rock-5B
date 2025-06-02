@@ -1,4 +1,5 @@
 #include "ServoMotorSetting.h"
+#include <thread>
 
 int main(int argc, char *argv[])
 {
@@ -8,19 +9,20 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // The parameters are (channel, frequency, duty cycle, chip No)
-    ServoMotorSetting servo_left(0, 50, 1.3, 14); // channel 0, chip 14
-    ServoMotorSetting servo_right(0, 50, 1.3, 8); // channel 0, chip 8
+    ServoMotorSetting servo_left(0, 50, 1.5, 14);  // 1.5ms
+    ServoMotorSetting servo_right(0, 50, 1.5, 8);  // 1.5ms
 
     int left_speed = std::atoi(argv[1]);
     int right_speed = std::atoi(argv[2]);
 
-    std::cout << "The speed of the left wheel is " << left_speed << ", the speed of the right wheel is " << right_speed << std::endl;
+    std::cout << "Setting speeds - Left: " << left_speed << ", Right: " << right_speed << std::endl;
 
+    servo_left.ChangeSpeed(left_speed);
+    servo_right.ChangeSpeed(right_speed);
+    
     while (1)
     {
-        servo_left.ChangeSpeed(left_speed);
-        servo_right.ChangeSpeed(right_speed);
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     return 0;
