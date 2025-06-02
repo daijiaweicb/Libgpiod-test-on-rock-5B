@@ -16,7 +16,7 @@ int PWM::StartPWM(int channel, int low_level, float high_level, int chip)
         return r;
     usleep(100000);
     per = (int)1E9 / low_level + high_level * 1000000;
-    duty_cycle = high_level;
+    duty_cycle = low_level;
     SetPeriod(per);
     SetDutyCycle(duty_cycle);
     enable();
