@@ -8,17 +8,20 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    //The parameters are (channel, frequency, duty cycle, chip No)
-    ServoMotorSetting servo_left(0, 20, 7.5, 14);
-    ServoMotorSetting servo_right(0, 20, 7.5, 8);
+    // The parameters are (channel, frequency, duty cycle, chip No)
+    ServoMotorSetting servo_left(0, 20, 7.5, 14); // channel 0, chip 14
+    ServoMotorSetting servo_right(0, 20, 7.5, 8); // channel 0, chip 8
 
     int left_speed = std::atoi(argv[1]);
     int right_speed = std::atoi(argv[2]);
 
-    servo_left.ChangeSpeed(left_speed);
-    servo_right.ChangeSpeed(right_speed);
-
     std::cout << "The speed of the left wheel is " << left_speed << ", the speed of the right wheel is " << right_speed << std::endl;
+
+    while (1)
+    {
+        servo_left.ChangeSpeed(left_speed);
+        servo_right.ChangeSpeed(right_speed);
+    }
 
     return 0;
 }
