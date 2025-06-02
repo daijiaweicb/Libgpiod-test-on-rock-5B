@@ -62,6 +62,7 @@ private:
     string chippath; // Path to pwmchip (e.g., /sys/class/pwm/pwmchip2)
     string pwmpath;  // Path to specific pwm channel (e.g., /pwm2)
     int per = 0;     // Period in nanoseconds
+    int duty_cycle = 0;
 
     /**
      * @brief Write an integer value to a sysfs file

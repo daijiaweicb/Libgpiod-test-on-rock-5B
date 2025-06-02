@@ -9,8 +9,8 @@ int main(int argc, char *argv[])
     }
 
     // The parameters are (channel, frequency, duty cycle, chip No)
-    ServoMotorSetting servo_left(0, 20, 7.5, 14); // channel 0, chip 14
-    ServoMotorSetting servo_right(0, 20, 7.5, 8); // channel 0, chip 8
+    ServoMotorSetting servo_left(0, 50, 1.3, 14); // channel 0, chip 14
+    ServoMotorSetting servo_right(0, 50, 1.3, 8); // channel 0, chip 8
 
     int left_speed = std::atoi(argv[1]);
     int right_speed = std::atoi(argv[2]);
