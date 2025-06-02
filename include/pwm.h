@@ -29,20 +29,7 @@ public:
      * @param chip PWM chip number (usually 0 or 2)
      * @return int 0 if success, <0 if failed
      */
-    int StartPWM(int channel, int frequency, float duty_cycle, int chip = 2);
-
-    /**
-     * @brief Set duty cycle by percentage
-     *
-     * @param Duty cycle percentage (e.g., 7.5)
-     * @return int Result code
-     */
-    inline int SetDutyCycle(float v) const
-    {
-        const int dc = (int)round((float)per * (v / 100.0));
-        const int r = SetDutyCycleNS(dc);
-        return r;
-    }
+    int StartPWM(int channel, int low_time, float high_time, int chip);
 
     /**
      * @brief Set duty cycle in nanoseconds
@@ -53,15 +40,24 @@ public:
         return r;
     }
 
+    /**
+     * @brief Set PWM period in nanoseconds
+     */
+    void SetPeriod(int ns) const
+    {
+        WriteSYS(pwmpath + "/period", ns);
+    }
+
     ~PWM()
     {
         disable(); // Disable PWM on object destruction
     }
+    int per = 0; // Period in nanoseconds
 
 private:
     string chippath; // Path to pwmchip (e.g., /sys/class/pwm/pwmchip2)
     string pwmpath;  // Path to specific pwm channel (e.g., /pwm2)
-    int per = 0;     // Period in nanoseconds
+    int highTimeToNs = 0;
     int duty_cycle = 0;
 
     /**
@@ -79,15 +75,17 @@ private:
         return r;
     }
 
-    /**
-     * @brief Set PWM period in nanoseconds
-     */
-    void SetPeriod(int ns) const
+    int CalculateFre(int low_time, int high_time)
     {
-        WriteSYS(pwmpath + "/period", ns);
+        return (low_time + high_time) * 1000000;
     }
 
-        /**
+    int ConvertHighTimeNs(int high_time)
+    {
+        return high_time * (int)1E6;
+    }
+
+    /**
      * @brief Enable PWM output
      */
     void enable() const

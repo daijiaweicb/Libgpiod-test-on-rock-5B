@@ -5,12 +5,12 @@ int main(int argc, char *argv[])
 {
     if (argc < 3)
     {
-        std::cout << "Usage: " << argv[0] << " <left_speed> <right_speed>" << std::endl;
+        std::cout << "Usage: " << argv[0] << " <left_speed> <right_speed>(speed range from -10 to 10)" << std::endl;
         return 1;
     }
 
-    ServoMotorSetting servo_left(0, 50, 1.5, 14);  // 1.5ms
-    ServoMotorSetting servo_right(0, 50, 1.5, 8);  // 1.5ms
+    ServoMotorSetting servo_left(0, 20, 1.5, 14);  // 1.5ms
+    ServoMotorSetting servo_right(0, 20, 1.5, 8);  // 1.5ms
 
     int left_speed = std::atoi(argv[1]);
     int right_speed = std::atoi(argv[2]);

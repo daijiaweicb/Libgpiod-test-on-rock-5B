@@ -12,7 +12,8 @@ public:
 
 private:
     PWM pwm; // Assuming PWM is a class that handles PWM operations
-    int SpeedToDutyNs(int speed);
+    int motor_fre = 0;
+    int SpeedToHighTime(int speed);
 };
 
 #endif
