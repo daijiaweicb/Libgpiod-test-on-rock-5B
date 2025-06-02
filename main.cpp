@@ -15,10 +15,10 @@ int main(int argc, char *argv[])
     int left_speed = std::atoi(argv[1]);
     int right_speed = std::atoi(argv[2]);
 
-    std::cout << "The speed of the left wheel is " << left_speed << ", the speed of the right wheel is " << right_speed << std::endl;
-
     servo_left.ChangeSpeed(left_speed);
     servo_right.ChangeSpeed(right_speed);
+
+    std::cout << "The speed of the left wheel is " << left_speed << ", the speed of the right wheel is " << right_speed << std::endl;
 
     return 0;
 }
