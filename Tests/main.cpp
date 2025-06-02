@@ -20,10 +20,10 @@ int main(int argc, char *argv[])
     servo_left.ChangeSpeed(left_speed);
     servo_right.ChangeSpeed(right_speed);
     
-    // while (1)
-    // {
-    //     std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    // }
+    while (1)
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
 
     return 0;
 }
