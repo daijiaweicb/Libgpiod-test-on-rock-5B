@@ -1,4 +1,4 @@
-#include "servo_motor_setting.h"
+#include "ServoMotorSetting.h"
 
 ServoMotorSetting::ServoMotorSetting(int channel, int frequency, int duty_cycle, int chipNo)
 {

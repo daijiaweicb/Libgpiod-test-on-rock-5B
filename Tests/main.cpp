@@ -1,4 +1,4 @@
-#include "servo_motor_setting.h"
+#include "ServoMotorSetting.h"
 
 int main(int argc, char *argv[])
 {
