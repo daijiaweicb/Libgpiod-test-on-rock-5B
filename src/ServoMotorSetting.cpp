@@ -3,7 +3,6 @@
 ServoMotorSetting::ServoMotorSetting(int channel, int low_time, int high_time, int chipNo)
 {
     pwm.StartPWM(channel, low_time, high_time, chipNo);
-    motor_fre = pwm.per;
 }
 
 ServoMotorSetting::~ServoMotorSetting()

@@ -1,6 +1,6 @@
 #include "pwm.h"
 
-int PWM::StartPWM(int channel, int low_time, float high_time, int chip)
+int PWM::StartPWM(int channel, float low_time, float high_time, int chip)
 {
     chippath = "/sys/class/pwm/pwmchip" + to_string(chip);
     pwmpath = chippath + "/pwm" + to_string(channel);

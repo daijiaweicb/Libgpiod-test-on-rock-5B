@@ -29,7 +29,7 @@ public:
      * @param chip PWM chip number (usually 0 or 2)
      * @return int 0 if success, <0 if failed
      */
-    int StartPWM(int channel, int low_time, float high_time, int chip);
+    int StartPWM(int channel, float low_time, float high_time, int chip);
 
     /**
      * @brief Set duty cycle in nanoseconds
@@ -75,7 +75,7 @@ private:
         return r;
     }
 
-    int CalculateFre(int low_time, int high_time)
+    int CalculateFre(float low_time, float high_time)
     {
         return (low_time + high_time) * 1000000;
     }
