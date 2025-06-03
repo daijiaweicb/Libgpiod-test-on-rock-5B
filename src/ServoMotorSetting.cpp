@@ -20,7 +20,7 @@ int ServoMotorSetting::SpeedToHighTime(int speed) // speed range from -10 to 10,
     int neutral_time = 1500000;
     int step_size = 20000;
 
-    return neutral_time + (speed * step_size);
+    return neutral_time + ((speed + 1) * step_size);
 }
 
 void ServoMotorSetting::ChangeSpeed(int speed)
