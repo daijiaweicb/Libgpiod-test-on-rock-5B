@@ -29,5 +29,6 @@ void ServoMotorSetting::ChangeSpeed(int speed)
     int duty_ns = SpeedToHighTime(speed);
     int per = 20000000 + duty_ns;
     pwm.SetPeriod(per);
-    pwm.SetDutyCycleNS(duty_ns);
+    // pwm.SetDutyCycleNS(duty_ns);
+    pwm.SetDutyCycleNS(20000000);
 }
