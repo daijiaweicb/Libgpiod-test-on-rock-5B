@@ -17,8 +17,8 @@ int main(int argc, char *argv[])
 
     std::cout << "Setting speeds - Left: " << left_speed << ", Right: " << right_speed << std::endl;
 
-    // servo_left.ChangeSpeed(left_speed);
-    // servo_right.ChangeSpeed(right_speed);
+    servo_left.ChangeSpeed(left_speed);
+    servo_right.ChangeSpeed(right_speed);
 
     while (1)
     {
