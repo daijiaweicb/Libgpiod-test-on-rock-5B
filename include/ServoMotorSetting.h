@@ -6,7 +6,7 @@
 class ServoMotorSetting
 {
 public:
-    ServoMotorSetting(int channel, int frequency, int duty_cycle, int chipNo);
+    ServoMotorSetting(int channel, float low_time, float high_time, int chipNo);
     ~ServoMotorSetting();
     void ChangeSpeed(int speed);
 

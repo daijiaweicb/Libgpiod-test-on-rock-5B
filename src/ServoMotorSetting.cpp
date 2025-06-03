@@ -1,6 +1,6 @@
 #include "ServoMotorSetting.h"
 
-ServoMotorSetting::ServoMotorSetting(int channel, int low_time, int high_time, int chipNo)
+ServoMotorSetting::ServoMotorSetting(int channel, float low_time, float high_time, int chipNo)
 {
     pwm.StartPWM(channel, low_time, high_time, chipNo);
 }
