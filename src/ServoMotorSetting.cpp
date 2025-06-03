@@ -18,8 +18,8 @@ int ServoMotorSetting::SpeedToHighTime(int speed) // speed range from -10 to 10,
     if (speed < -10)
         speed = -10;
 
-    int neutral_time = 1500000;
-    int step_size = 20000;
+    int neutral_time = 150000;
+    int step_size = 200000;
 
     return neutral_time + (speed * step_size);
 }
@@ -27,7 +27,7 @@ int ServoMotorSetting::SpeedToHighTime(int speed) // speed range from -10 to 10,
 void ServoMotorSetting::ChangeSpeed(int speed)
 {
     int duty_ns = SpeedToHighTime(speed);
-    int per = 2000000 + duty_ns;
+    int per = 20000000 + duty_ns;
     pwm.SetPeriod(per);
     pwm.SetDutyCycleNS(duty_ns);
 }
