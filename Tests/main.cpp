@@ -9,8 +9,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    ServoMotorSetting servo_left(0, 20, 1.5, 14);  // 1.5ms
-    ServoMotorSetting servo_right(0, 20, 1.5, 8);  // 1.5ms
+    ServoMotorSetting servo_left(0, 20, 1.5, 14); // 1.5ms
+    ServoMotorSetting servo_right(0, 20, 1.5, 8); // 1.5ms
 
     int left_speed = std::atoi(argv[1]);
     int right_speed = std::atoi(argv[2]);
@@ -19,8 +19,11 @@ int main(int argc, char *argv[])
 
     servo_left.ChangeSpeed(left_speed);
     servo_right.ChangeSpeed(right_speed);
-    
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+    while (1)
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    }
 
     return 0;
 }
