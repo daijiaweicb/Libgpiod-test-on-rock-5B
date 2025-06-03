@@ -11,29 +11,38 @@ if(NOT LIBGPIOD_FOUND)
     message(FATAL_ERROR "libgpiod not found!")
 endif()
 
-set(SOURCES
-    Tests/main.cpp
+set(COMMON_SOURCES
     src/pwm.cpp
     src/ServoMotorSetting.cpp
 )
 
-add_executable(TestServoMotor ${SOURCES})
-
-target_include_directories(TestServoMotor PRIVATE
-    ${LIBGPIOD_INCLUDE_DIRS}
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
+add_executable(TestServoMotor 
+    Tests/TestServoMotor.cpp
+    ${COMMON_SOURCES}
 )
 
-target_link_directories(TestServoMotor PRIVATE
-    ${LIBGPIOD_LIBRARY_DIRS}
+add_executable(TestSpeedChange 
+    Tests/TestSpeedChange.cpp
+    ${COMMON_SOURCES}
 )
 
-target_link_libraries(TestServoMotor PRIVATE 
-    ${LIBGPIOD_LIBRARIES}
-)
+foreach(target TestServoMotor TestSpeedChange)
+    target_include_directories(${target} PRIVATE
+        ${LIBGPIOD_INCLUDE_DIRS}
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+    )
 
-target_compile_options(TestServoMotor PRIVATE
-    ${LIBGPIOD_CFLAGS_OTHER}
-)
+    target_link_directories(${target} PRIVATE
+        ${LIBGPIOD_LIBRARY_DIRS}
+    )
 
-install(TARGETS TestServoMotor RUNTIME DESTINATION bin)
+    target_link_libraries(${target} PRIVATE 
+        ${LIBGPIOD_LIBRARIES}
+    )
+
+    target_compile_options(${target} PRIVATE
+        ${LIBGPIOD_CFLAGS_OTHER}
+    )
+endforeach()
+
+install(TARGETS TestServoMotor TestSpeedChange RUNTIME DESTINATION bin)
