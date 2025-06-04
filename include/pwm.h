@@ -9,10 +9,10 @@
 
 using namespace std;
 
-// Reference: https://github.com/berndporr/rpi_pwm
+#define DutyCycle 20000000 // The duty cycle for servo motor is always 20000000ns
 
 /**
- * @brief PWM control class, based on the sysfs interface to control the PWM output on the Raspberry Pi.
+ * @brief PWM control class, based on the sysfs interface to control the PWM output on the Rock 5B
  *
  * This class encapsulates writing to /sys/class/pwm/pwmchipX/pwmY,
  * including setting period, duty cycle, and enabling/disabling output.
@@ -23,10 +23,10 @@ public:
     /**
      * @brief Start the PWM output
      *
-     * @param channel PWM channel (e.g., 2 for pwm2)
-     * @param frequency Frequency in Hz (e.g., 20Hz for servo motors)
-     * @param duty_cycle Duty cycle in percentage (0.0 ~ 100.0)
-     * @param chip PWM chip number (usually 0 or 2)
+     * @param channel PWM channel (e.g., 0 for pwm0)
+     * @param low_time Low time of the signal of one period
+     * @param high_time High time of the signal of one period
+     * @param chip PWM chip number
      * @return int 0 if success, <0 if failed
      */
     int StartPWM(int channel, float low_time, float high_time, int chip);
