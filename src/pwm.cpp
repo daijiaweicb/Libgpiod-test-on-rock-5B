@@ -16,10 +16,8 @@ int PWM::StartPWM(int channel, float low_time, float high_time, int chip)
         return r;
     usleep(100000);
     per  = CalculateFre(low_time , high_time);
-    duty_cycle = ConvertHighTimeNs(high_time) ;
     SetPeriod(per);
-    // SetDutyCycleNS(duty_cycle);
-    SetDutyCycleNS(20000000);
+    SetDutyCycleNS(DutyCycle);
     enable();
     return r;
 }
