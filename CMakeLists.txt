@@ -14,6 +14,7 @@ endif()
 set(COMMON_SOURCES
     src/pwm.cpp
     src/ServoMotorSetting.cpp
+    src/RoboticMotion.cpp
 )
 
 add_executable(TestServoMotor 
@@ -26,7 +27,12 @@ add_executable(TestSpeedChange
     ${COMMON_SOURCES}
 )
 
-foreach(target TestServoMotor TestSpeedChange)
+add_executable(TestBotMotion
+    Tests/TestBotMotion.cpp
+    ${COMMON_SOURCES}
+)
+
+foreach(target TestServoMotor TestSpeedChange TestBotMotion)
     target_include_directories(${target} PRIVATE
         ${LIBGPIOD_INCLUDE_DIRS}
         ${CMAKE_CURRENT_SOURCE_DIR}/include
@@ -45,4 +51,4 @@ foreach(target TestServoMotor TestSpeedChange)
     )
 endforeach()
 
-install(TARGETS TestServoMotor TestSpeedChange RUNTIME DESTINATION bin)
+install(TARGETS TestServoMotor TestSpeedChange TestBotMotion RUNTIME DESTINATION bin)
