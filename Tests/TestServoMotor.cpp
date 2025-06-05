@@ -9,8 +9,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    ServoMotorSetting servo_right(0, 20, 1.5, 14); // 1.5ms
-    ServoMotorSetting servo_left(0, 20, 1.5, 8); // 1.5ms
+    ServoMotorSetting servo_right(0, 20, 1.52, 14); // 1.5ms
+    ServoMotorSetting servo_left(0, 20, 1.52, 8); // 1.5ms
 
     int left_speed = std::atoi(argv[1]);
     int right_speed = std::atoi(argv[2]);

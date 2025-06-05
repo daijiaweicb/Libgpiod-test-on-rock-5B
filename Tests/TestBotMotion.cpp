@@ -25,7 +25,7 @@ char getch()
 
 int main(int argc, char *argv[])
 {
-    Motion motion(0, 0, 20, 1.5, 14, 8);
+    Motion motion(0, 0, 20, 1.52, 14, 8);
 
     cout << "Use the keyborad to control the bot: W(forward) S(backward) A(turn left) D(trun right) R(speed up) F(declerate) X(stop) Z(quit)" << endl;
 

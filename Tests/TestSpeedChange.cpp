@@ -5,8 +5,8 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    ServoMotorSetting servo_right(0, 20, 1.5, 14); // 1.5ms
-    ServoMotorSetting servo_left(0, 20, 1.5, 8); // 1.5ms
+    ServoMotorSetting servo_right(0, 20, 1.52, 14); // 1.5ms
+    ServoMotorSetting servo_left(0, 20, 1.52, 8); // 1.5ms
 
     int speed = -10;
 
