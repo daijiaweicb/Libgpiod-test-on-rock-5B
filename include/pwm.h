@@ -47,6 +47,14 @@ public:
     {
         WriteSYS(pwmpath + "/period", ns);
     }
+    
+    /**
+     * @brief Disable PWM output
+     */
+    void disable() const
+    {
+        WriteSYS(pwmpath + "/enable", 0);
+    }
 
     ~PWM()
     {
@@ -92,14 +100,6 @@ private:
     {
         int r = WriteSYS(pwmpath + "/enable", 1);
         cout << "[DEBUG] enable() write to " << pwmpath + "/enable" << " result = " << r << endl;
-    }
-
-    /**
-     * @brief Disable PWM output
-     */
-    void disable() const
-    {
-        WriteSYS(pwmpath + "/enable", 0);
     }
 };
 
