@@ -8,10 +8,10 @@ class Motion
 public:
     Motion(int leftChannel, int rightChannel, float low_time, float high_time, int rightChipNo, int leftChipNo);
 
-    void Forward(int speed);
-    void Backward(int speed);
-    void TurnLeft(int speed);
-    void TurnRight(int speed);
+    void Forward(float speed);
+    void Backward(float speed);
+    void TurnLeft(float speed);
+    void TurnRight(float speed);
     void Stop();
 
 private:

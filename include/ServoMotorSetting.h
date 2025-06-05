@@ -10,12 +10,12 @@ class ServoMotorSetting
 public:
     ServoMotorSetting(int channel, float low_time, float high_time, int chipNo);
     ~ServoMotorSetting();
-    void ChangeSpeed(int speed);
+    void ChangeSpeed(float speed);
     void StopMotor();
 
 private:
     PWM pwm; // Assuming PWM is a class that handles PWM operations
-    int SpeedToHighTime(int speed);
+    int SpeedToHighTime(float speed);
 };
 
 #endif

@@ -5,28 +5,28 @@ Motion::Motion(int leftChannel, int rightChannel, float low_time, float high_tim
 {
 }
 
-void Motion::Forward(int speed)
+void Motion::Forward(float speed)
 {
     leftMotor.ChangeSpeed(speed);
     rightMotor.ChangeSpeed(speed);
 }
 
-void Motion::Backward(int speed)
+void Motion::Backward(float speed)
 {
     leftMotor.ChangeSpeed(-speed);
     rightMotor.ChangeSpeed(-speed);
 }
 
-void Motion::TurnLeft(int speed)
+void Motion::TurnLeft(float speed)
 {
-    leftMotor.ChangeSpeed(speed / 2);
+    leftMotor.ChangeSpeed(speed / 2.0f);
     rightMotor.ChangeSpeed(speed);
 }
 
-void Motion::TurnRight(int speed)
+void Motion::TurnRight(float speed)
 {
     leftMotor.ChangeSpeed(speed);
-    rightMotor.ChangeSpeed(speed / 2);
+    rightMotor.ChangeSpeed(speed / 2.0f);
 }
 
 void Motion::Stop()
