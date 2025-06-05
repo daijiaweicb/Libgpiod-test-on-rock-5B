@@ -7,8 +7,7 @@ ServoMotorSetting::ServoMotorSetting(int channel, float low_time, float high_tim
 
 ServoMotorSetting::~ServoMotorSetting()
 {
-    pwm.SetDutyCycleNS(INVERSEDUTY);
-    pwm.SetPeriod(INVERSEDUTY + 1520000);
+    pwm.disable();
 }
 
 // high time range from 1.3ms to 1.7ms: 1.3 is full speed clockwise, 1.5 is no rotation, 1.7 is full speed counterclockwise
