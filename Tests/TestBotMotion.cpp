@@ -43,15 +43,15 @@ int main(int argc, char *argv[])
             cout << "Forward.....The speed is: " << speed << endl;
             break;
         case 's':
-            motion.Forward(speed);
+            motion.Backward(speed);
             cout << "Backward.....The speed is: " << speed << endl;
             break;
         case 'a':
-            motion.Forward(speed);
+            motion.TurnLeft(speed);
             cout << "Turn left.....The speed is: " << speed << endl;
             break;
         case 'd':
-            motion.Forward(speed);
+            motion.TurnRight(speed);
             cout << "Turn right.....The speed is: " << speed << endl;
             break;
 
