@@ -6,6 +6,8 @@
 
 using namespace std;
 
+// A simple test uses the keyboard to control the robot's forward, backward and steering, and to regulate speed (using polling)
+
 /**
  * Reads individual character input directly from the keyboard without the need for a carriage return.
  * @return {char}  : input character
