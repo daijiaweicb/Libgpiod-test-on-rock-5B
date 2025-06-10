@@ -1,5 +1,6 @@
 #include "ServoMotorSetting.h"
 #include <thread>
+// This program sets the speed of two servo motors based on command line arguments.
 
 int main(int argc, char *argv[])
 {
