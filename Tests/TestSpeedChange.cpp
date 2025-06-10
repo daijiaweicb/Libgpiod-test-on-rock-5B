@@ -1,7 +1,9 @@
 #include "ServoMotorSetting.h"
 #include <thread>
-
 using namespace std;
+
+// This program gradually increases the speed of two servo motors from -10 to 10.
+// The speed is changed every second, and the final speed is printed to the console.
 
 int main(int argc, char* argv[])
 {
