@@ -47,7 +47,7 @@ public:
     {
         WriteSYS(pwmpath + "/period", ns);
     }
-    
+
     /**
      * @brief Disable PWM output
      */
@@ -86,11 +86,6 @@ private:
     int CalculateFre(float low_time, float high_time)
     {
         return (low_time + high_time) * 1000000;
-    }
-
-    int ConvertHighTimeNs(int high_time)
-    {
-        return high_time * (int)1E6;
     }
 
     /**
