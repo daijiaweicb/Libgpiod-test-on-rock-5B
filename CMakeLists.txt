@@ -4,12 +4,12 @@ project(libgpiod_test)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(LIBGPIOD REQUIRED libgpiod>=1.6.0)
+# find_package(PkgConfig REQUIRED)
+# pkg_check_modules(LIBGPIOD REQUIRED libgpiod>=1.6.0)
 
-if(NOT LIBGPIOD_FOUND)
-    message(FATAL_ERROR "libgpiod not found!")
-endif()
+# if(NOT LIBGPIOD_FOUND)
+#     message(FATAL_ERROR "libgpiod not found!")
+# endif()
 
 set(COMMON_SOURCES
     src/pwm.cpp
